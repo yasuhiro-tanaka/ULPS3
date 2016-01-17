@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ivy-module version="2.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="http://ant.apache.org/ivy/schemas/ivy.xsd"
+    xmlns:e="http://ant.apache.org/ivy/extra">
+    <info organisation="uls" module="testTraining" />
+    <configurations defaultconfmapping="base->*;build->*;test->default, javadoc, sources">
+        <conf name="base" transitive="false" visibility="private"/>
+        <conf name="build" extends="base" transitive="false"/>
+        <conf name="test" extends="build" transitive="false"/>
+    </configurations>
+    <dependencies>
+    	<dependency org="com.google.guava" name="guava" rev="14.0.1" conf="base"/>
+		<dependency org="joda-time" name="joda-time" rev="2.2" conf="base"/>
+		<dependency org="org.apache.derby" name="derby" rev="${derby.version}" conf="base"/>
+		<dependency org="org.apache.derby" name="derbytools" rev="${derby.version}" conf="base"/>
+		<dependency org="org.apache.derby" name="derbyclient" rev="${derby.version}" conf="base"/>
+		<dependency org="org.apache.derby" name="derbynet" rev="${derby.version}" conf="base"/>
+		<dependency org="org.apache.derby" name="derbyLocale_it" rev="${derby.version}"  conf="base"/>
+		<dependency org="org.apache.derby" name="derbyLocale_de_DE" rev="${derby.version}"  conf="base"/>
+		<dependency org="org.apache.derby" name="derbyLocale_es" rev="${derby.version}"  conf="base"/>
+		<dependency org="org.apache.derby" name="derbyLocale_ja_JP" rev="${derby.version}"  conf="base"/>
+		<dependency org="org.apache.derby" name="derbyLocale_cs" rev="${derby.version}"  conf="base"/>
+		<dependency org="org.apache.derby" name="derbyLocale_zh_TW" rev="${derby.version}"  conf="base"/>
+		<dependency org="org.apache.derby" name="derbyLocale_zh_CN" rev="${derby.version}"  conf="base"/>
+		<dependency org="org.apache.derby" name="derbyLocale_pt_BR" rev="${derby.version}"  conf="base"/>
+		<dependency org="org.apache.derby" name="derbyLocale_fr" rev="${derby.version}"  conf="base"/>
+		<dependency org="org.apache.derby" name="derbyLocale_ru" rev="${derby.version}"  conf="base"/>
+		<dependency org="org.apache.derby" name="derbyLocale_ko_KR" rev="${derby.version}"  conf="base"/>
+		<dependency org="org.apache.derby" name="derbyLocale_hu" rev="${derby.version}"  conf="base"/>
+		<dependency org="org.apache.derby" name="derbyLocale_pl" rev="${derby.version}" conf="base"/>
+		<dependency org="cglib" name="cglib" rev="3.0" conf="base"/>
+        <dependency org="org.easymock" name="easymock" rev="3.1" conf="test"/>
+		<dependency org="org.hamcrest" name="hamcrest-core" rev="1.3" conf="test"/>
+		<dependency org="junit" name="junit" rev="4.11" conf="test"/>
+    </dependencies>
+</ivy-module>
