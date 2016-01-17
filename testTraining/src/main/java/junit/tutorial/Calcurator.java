@@ -2,8 +2,8 @@ package junit.tutorial;
 
 public class Calcurator {
 	/**
-	 * x‚Éy‚ğŠ|‚¯‚½Œ‹‰Ê‚ğ•Ô‚·
-	 * 
+	 * x ã¨ y ã®ä¹—ç®—çµæœã‚’è¿”ã—ã¾ã™ã€‚
+	 *
 	 * @param x
 	 * @param y
 	 * @return x*y
@@ -13,13 +13,17 @@ public class Calcurator {
 	}
 
 	/**
-	 * x‚ğy‚ÅŠ„‚Á‚½Œ‹‰Ê‚ğ•Ô‚·
-	 * 
+	 * x ã¨ y ã®é™¤ç®—çµæœã‚’è¿”ã—ã¾ã™ã€‚
+	 *
 	 * @param x
 	 * @param y
 	 * @return x/y
+	 * @throws Throwable
 	 */
-	public double divide(double x, double y) {
+	public double divide(double x, double y) throws IllegalArgumentException {
+		if (y == 0) {
+			throw new IllegalArgumentException("ã‚¼ãƒ­é™¤ç®—ã§ã™ã€‚[y=" + y + "]");
+		}
 		return x / y;
 	}
 

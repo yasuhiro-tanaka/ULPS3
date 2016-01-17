@@ -34,10 +34,15 @@ public class CalcuratorTest {
 	}
 
 	@Test
-	public void test_divide_3割る2は1点5() {
+	public void test_divide_3割る2は1ドット5() throws Throwable {
 		double expected = 1.5d;
 		double actual = target.divide(3, 2);
 		assertThat(actual, is(expected));
+	}
+
+	@Test(expected = IllegalArgumentException.class)
+	public void test_divide_ゼロ除算はIllegalArgumentException() throws Throwable {
+		target.divide(3, 0);
 	}
 
 }
