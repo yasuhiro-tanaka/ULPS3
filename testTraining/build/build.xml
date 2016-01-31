@@ -127,7 +127,7 @@
 		</echo>
 	</target>
 
-	<target name="unit_test" depends="init,compile" description="execute Junit">
+	<target name="unit_test" description="execute Junit">
 		<mkdir dir="${report.test.dir}" />
 		<delete>
 			<fileset dir="${report.test.dir}" includes="TEST-*" />
@@ -145,7 +145,6 @@
 		</junit>
 
 		<!--バッチテストの実行結果をTESTS-TestSuites.xmlにまとめて、そこからHTMLを生成-->
-		<!--
 		<junitreport todir="${report.test.dir}">
 			<fileset dir="${report.test.dir}">
 				<include name="TEST-*.xml" />
@@ -153,26 +152,6 @@
 
 			<report format="noframes" todir="${report.test.dir}" />
 		</junitreport>
-		-->
-
-		<!--
-		<junit>
-			<classpath refid="testTraining.classpath" />
-			<test name="${test.class}" todir="${test.report.dir}" />
-			<formatter type="xml" extension=".xml" />
-		</junit>
-		-->
-		<!--
-		<junit fork="yes" haltonfailure="false">
-			<formatter type="xml" usefile="true" />
-            <classpath refid="testTraining.classpath"/>
-			<batchtest fork="yes" todir="${report.test.dir}">
-				<fileset dir="${test.src}">
-					<include name="**/*Test.java" />
-				</fileset>
-			</batchtest>
-		</junit>
-		-->
 	</target>
 
 	<target name="test" depends="">
