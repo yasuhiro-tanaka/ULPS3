@@ -61,7 +61,7 @@
                 target definition
          =============================== -->
 	<target name="init">
-		<echo message="exec init"/>
+		<echo message="exec init" />
 		<delete dir="target/classes" />
 		<delete dir="target/test-classes" />
 		<mkdir dir="target/classes" />
@@ -128,12 +128,38 @@
 		<delete>
 			<fileset dir="${report.test.dir}" includes="TEST-*" />
 		</delete>
+		<junit printsummary="yes" haltonfailure="yes">
+
+			<classpath refid="class.path" />
+
+			<batchtest fork="yes" todir="${report.test.dir}">
+				<formatter type="xml" />
+				<fileset dir="${test.src}">
+					<include name="**/*Test.java" />
+					<exclude name="**/TestAll.java" />
+				</fileset>
+			</batchtest>
+		</junit>
+
+		<!--バッチテストの実行結果をTESTS-TestSuites.xmlにまとめて、そこからHTMLを生成-->
+		<junitreport todir="${report.test.dir}">
+			<fileset dir="${report.test.dir}">
+				<include name="TEST-*.xml" />
+			</fileset>
+
+			<!--TESTS-TestSuites.xmlから生成するHTML-->
+			<!--eclipse3.0.1(ant1.6.2/Xalan1)では、"frames"は使えないけど、
+	      どうせ印刷するんだから"noframes"でいいや-->
+			<report format="noframes" todir="${report.test.dir}" />
+		</junitreport>
+
+		<!--
 		<junit>
 			<classpath refid="testTraining.classpath" />
 			<test name="${test.class}" todir="${test.report.dir}" />
 			<formatter type="xml" extension=".xml" />
-			<!-- type を xml に変更 -->
 		</junit>
+		-->
 		<!--
 		<junit fork="yes" haltonfailure="false">
 			<formatter type="xml" usefile="true" />
