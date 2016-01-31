@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <project xmlns="antlib:org.apache.tools.ant" xmlns:ivy="antlib:org.apache.ivy.ant" name="resolve_dependencies" default="resolve_dependencies" basedir="..">
 
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="1.7"/>
+    <property name="source" value="1.7"/>
+
 	<path id="testTraining.classpath">
 		<pathelement location="target/classes" />
 		<pathelement location="target/test-classes" />
@@ -101,15 +105,15 @@
 
 	<target name="compile" depends="resolve_dependencies">
 		<echo message="${ant.project.name}: ${ant.file}" />
-		<javac debug="true" debuglevel="${debuglevel}" destdir="target/classes" includeantruntime="false" source="${source}" target="${target}">
-			<src path="src/main/java" />
-			<src path="src/main/resources" />
+		<javac debug="true" debuglevel="${debuglevel}" destdir="${product.classes}" includeantruntime="false" source="${source}" target="${target}">
+			<src path="${product.src}" />
+			<src path="${product.resources}" />
 			<classpath refid="testTraining.classpath" />
 		</javac>
 
 		<javac debug="true" debuglevel="${debuglevel}" destdir="target/test-classes" includeantruntime="false" source="${source}" target="${target}">
-			<src path="src/test/java" />
-			<src path="src/test/resources" />
+			<src path="${test.src}" />
+			<src path="${test.resources}" />
 			<classpath refid="testTraining.classpath" />
 		</javac>
 	</target>
@@ -130,8 +134,7 @@
 		</delete>
 		<junit printsummary="yes" haltonfailure="yes">
 
-			<classpath refid="class.path" />
-
+			<classpath refid="testTraining.classpath" />
 			<batchtest fork="yes" todir="${report.test.dir}">
 				<formatter type="xml" />
 				<fileset dir="${test.src}">
@@ -142,16 +145,15 @@
 		</junit>
 
 		<!--バッチテストの実行結果をTESTS-TestSuites.xmlにまとめて、そこからHTMLを生成-->
+		<!--
 		<junitreport todir="${report.test.dir}">
 			<fileset dir="${report.test.dir}">
 				<include name="TEST-*.xml" />
 			</fileset>
 
-			<!--TESTS-TestSuites.xmlから生成するHTML-->
-			<!--eclipse3.0.1(ant1.6.2/Xalan1)では、"frames"は使えないけど、
-	      どうせ印刷するんだから"noframes"でいいや-->
 			<report format="noframes" todir="${report.test.dir}" />
 		</junitreport>
+		-->
 
 		<!--
 		<junit>
