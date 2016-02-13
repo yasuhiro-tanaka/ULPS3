@@ -3,6 +3,11 @@ package junit.enclosed;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 保有商品の情報を管理する
+ * @author yasuhiro.tanaka
+ *
+ */
 public class ItemStock {
 	private List<String> items;
 

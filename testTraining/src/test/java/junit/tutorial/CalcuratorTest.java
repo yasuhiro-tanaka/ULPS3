@@ -20,6 +20,54 @@ public class CalcuratorTest {
 	}
 
 	@Test
+	public void test_add_0足す0は0() throws Exception {
+		// SetUp
+		int expected = 0;
+		// Exercise
+		int actual = target.add(0, 0);
+		// Verify
+		assertThat(actual, is(expected));
+		// TearDown
+
+	}
+
+	@Test
+	public void test_add_0足す1は1() throws Exception {
+		// SetUp
+		int expected = 1;
+		// Exercise
+		int actual = target.add(0, 1);
+		// Verify
+		assertThat(actual, is(expected));
+		// TearDown
+
+	}
+
+	@Test
+	public void test_add_1足す0は1() throws Exception {
+		// SetUp
+		int expected = 1;
+		// Exercise
+		int actual = target.add(1, 0);
+		// Verify
+		assertThat(actual, is(expected));
+		// TearDown
+
+	}
+
+	@Test
+	public void test_add_3足す4は7() throws Exception {
+		// SetUp
+		int expected = 7;
+		// Exercise
+		int actual = target.add(3, 4);
+		// Verify
+		assertThat(actual, is(expected));
+		// TearDown
+
+	}
+
+	@Test
 	public void test_multiply_3掛ける4は12() {
 		int expected = 12;
 		int actual = target.multiply(3, 4);
