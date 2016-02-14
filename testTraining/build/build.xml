@@ -133,7 +133,7 @@
 		<delete>
 			<fileset dir="${report.test.dir}" includes="TEST-*" />
 		</delete>
-		<junit printsummary="yes" haltonfailure="yes">
+		<junit printsummary="yes" haltonfailure="no" haltonerror="no">
 
 			<classpath refid="testTraining.classpath" />
 			<batchtest fork="yes" todir="${report.test.dir}">
