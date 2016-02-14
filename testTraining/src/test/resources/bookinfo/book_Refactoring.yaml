@@ -1,0 +1,6 @@
+!!junit.testfixtures.Book
+title: Refactoring
+price: 4500
+author: !!junit.testfixtures.Author
+  firstName: Martin
+  lastName: Fowler
