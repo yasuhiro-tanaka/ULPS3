@@ -10,6 +10,7 @@
 		<pathelement location="target/test-classes" />
 		<pathelement location="lib/oss/jar/junit.jar" />
 		<pathelement location="lib/oss/jar/hamcrest-core.jar" />
+		<pathelement location="lib/oss/bundle/snakeyaml.jar" />
 	</path>
 
 	<!-- build dir -->
