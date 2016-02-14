@@ -29,22 +29,14 @@ public class SlowAndFastTest {
 	@Test
 	@Category(SlowTests.class)
 	public void test_slowTest_01() throws Exception {
-		//SetUp
-		//Exercise
-		//Verify
-		fail();
-		//TearDown
+//		fail();
 
 	}
 
 	@Test
 	@Category(SlowTests.class)
 	public void test_slowTest_02() throws Exception {
-		//SetUp
-		//Exercise
-		//Verify
-		fail();
-		//TearDown
+//		fail();
 
 	}
 }
