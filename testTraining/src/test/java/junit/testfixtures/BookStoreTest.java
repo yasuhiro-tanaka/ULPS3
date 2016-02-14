@@ -62,19 +62,19 @@ public class BookStoreTest {
 
 	}
 
-	@Test
-	public void test_getTotalPrice_本Aの価格が4500の場合は4500を返す() throws Exception {
-		//SetUp
-		Book book = (Book) new Yaml().loadAs(new InputStreamReader(
-				new FileInputStream(new File(TestResourceManager.getPath(
-						"/bookinfo/book_Refactoring.yaml"))), "Shift_JIS"), Book.class);
-		target.add(book);
-		long expected = 4500;
-		//Exercise
-		long actual = target.getTotalPrice();
-		//Verify
-		assertThat(actual, is(expected));
-		//TearDown
-	}
+//	@Test
+//	public void test_getTotalPrice_本Aの価格が4500の場合は4500を返す() throws Exception {
+//		//SetUp
+//		Book book = (Book) new Yaml().loadAs(new InputStreamReader(
+//				new FileInputStream(new File(TestResourceManager.getPath(
+//						"/bookinfo/book_Refactoring.yaml"))), "Shift_JIS"), Book.class);
+//		target.add(book);
+//		long expected = 4500;
+//		//Exercise
+//		long actual = target.getTotalPrice();
+//		//Verify
+//		assertThat(actual, is(expected));
+//		//TearDown
+//	}
 
 }
